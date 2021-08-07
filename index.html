@@ -12,18 +12,43 @@
     <title>🪨📃✂️</title>
 </head>
 <body>
-    <section class="welcome-view">
+    <div class="hidden welcome-view">
         <h3>🪨📃✂️</h3>
         <h1>Welcome! What should I call you?</h1>
         <input autofocus="autofocus" name="user-name" type="text" maxlength="16" size="8">
         <button>Let's Play!</button>
-    </section>
-    <section class="setup-view">
-        
-    </section>
-    <section class="gameplay-view">
-
-    </section>
+    </div>
+    <div class="setup-view">
+        <section class="player1 sidebar">
+            <p>Hi there</p>
+            <p id="userName">TEST</p>
+            <p>You currently have <p id="userWins">#</p> wins stored</p>
+        </section>
+        <section class="game-setup">
+            <form>
+                <label for="normal">😀</label>
+                <input name="gameSelection" type="radio" value="normal">
+                <label for="spicy">🌶</label>
+                <input name="gameSelection" type="radio" value="spicy">
+            </form>
+        </section>
+        <section class="player2 sidebar">
+            <p>Hi there</p>
+            <p id="userName">TEST</p>
+            <p>You currently have <p id="userWins">#</p> wins stored</p>
+        </section>
+        <h3>🪨📃✂️</h3>
+    </div>
+    <div class="hidden gameplay-view">
+        <form>
+            <label for="rock">🪨</label>
+            <input name="rps" type="radio" value="rock">
+            <label for="paper">📄</label>
+            <input name="rps" type="radio" value="paper">
+            <label for="scissors">✂️</label>
+            <input name="rps" type="radio" value="paper">
+        </form>
+    </div>
 </body>
 <script type="text/javascript" src="./player.js"></script>
 <script type="text/javascript" src="./computer.js"></script>

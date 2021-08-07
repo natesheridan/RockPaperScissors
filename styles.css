@@ -81,6 +81,61 @@ h3 {
     border-color: #9fa0ffff;
 }
 
+/* Setup Gameplay Screen */
+.setup-view{
+}
+.setup-view h3{
+    position: fixed;
+    font-size: 4vh;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.sidebar{
+    position: fixed;
+    height: 100%;
+    border: 1px solid #fff;
+    width: 20%;
+}
+.sidebar.player1{
+    background-color: rgba(255, 65, 65, 0.31);
+}
+.sidebar.player2{
+    right: 0%;
+    background-color:rgba(66, 94, 255, 0.084)
+}
+
+.game-setup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 40%;
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}
+
+.game-setup form{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.208);
+    font-size:10vh;
+}
+.game-setup input[type=radio]{
+    width: 500px;
+}
+
+
+
+/* Gameplay View */
+.gameplay-view{
+
+}
+
+
+
 
 
 
