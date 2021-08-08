@@ -1,9 +1,12 @@
 var welcomeView = document.querySelector('.welcome-view')
 var setupView = document.querySelector('.setup-view')
 var gameplayView = document.querySelector('.gameplay-view')
+var sidebars = document.querySelector('.sidebars')
+var gameplayMainScreen = document.querySelector('.gameplay-main-screen')
 var currentView = '';
 var currentP1 = '';
 var currentP2 = '';
+
 
 document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
 document.querySelector('.game-selection-submit').addEventListener('click', gamemodeSelection)
@@ -14,8 +17,9 @@ document.querySelector('.game-selection-submit').addEventListener('click', gamem
 
 
 
-
-
+function populateNewGame(){
+    gameplayMainScreen.innerHTML = '';
+}
 
 function gamemodeSelection(event){
     event.preventDefault();
@@ -24,16 +28,21 @@ function gamemodeSelection(event){
         console.log("errorMessage")
     }
     else if (gamemodeSelection==="normal"){
-
-        console.log("normal")
+        goToGamemode("normal")
     }
     else if (gamemodeSelection==="spicy"){
-        console.log("spicy")
+        goToGamemode(spicy)
     }
 }
 
-
-
+function goToGamemode(gamemode){
+    if (gamemode === "normal"){
+        goToView(gameplayView)
+    }
+    else if (gamemode == "spicy"){
+        return;
+    }
+}
 
 
 function welcomeScrnSubmit(event){
@@ -55,6 +64,7 @@ function updatePlayerSidebars(){
     var userName = currentP1.name;
     var userToken = currentP1.token;
     var userWins = currentP1.wins
+
     document.querySelector('.player1').innerHTML = `
     <h2>${userToken}</h2>
     <h3>${userName}</h3>
@@ -75,7 +85,9 @@ function goToView(view){
     hide(welcomeView)
     hide(setupView)
     hide(gameplayView)
+    show(sidebars)
     show(view)
+    updatePlayerSidebars();
     currentView = view
 }
 
@@ -86,4 +98,15 @@ function hide(element){
 }
 function show(element){
     element.classList.remove('hidden');
+}
+
+function popupMessage(message, timeInMS, color = "gold"){
+    popupContainer = document.querySelector('#popup')
+    popupContainer.classList.add(`!${color}-popup`)
+    popupContainer.innerHTML=`<p>${message}</p>`
+    show(popupContainer)
+
+    setTimeout(function(){
+        hide(popupContainer);
+    }, timeInMS)
 }
