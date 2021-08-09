@@ -4,6 +4,8 @@ class Computer{
         this.name = name;
         this.wins = 0;
         this.token = "💻";
+        this.winningGif = "";
+        this.losingGif = "";
     }
     takeTurn(){
         var selection = '';
@@ -17,8 +19,9 @@ class Computer{
         else if(randomNumber0to2===2){
             selection = "scissors";
         }
-        return selection;
+        return `${selection}`;
     }
+
 
 
 }
