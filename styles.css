@@ -177,14 +177,53 @@ h3 {
     border-radius: 15px;
 }
 
+.game-selection h2{
+    font-size: 2vw;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.game-selection p{
+    font-size: .3em;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 .game-setup form{
+    text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.208);
+    align-items: stretch;
+    justify-content: space-around;
     font-size:10vh;
+    height: 100%;
 }
-.game-setup input[type=radio]{
-    width: 500px;
+.game-setup input[type="radio"]{
+    display: none;
+}
+.game-setup label{
+    display: inline-block;
+    padding: 6px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.153);
+    font-size: 3vw;
+    border-radius: 9px;
+    cursor: pointer;
+}
+.game-setup label:hover{
+    border: 1px solid purple;
+}
+.game-setup input[type="radio"]:checked+label {
+    background-color: rgba(157, 0, 255, 0.18);
+}
+.game-setup button{
+    font-size: 20px;
+    height: 50px;
+    border:none;
+    background-color: gold;
+    border-radius: 9px;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+}
+.game-setup button:hover{
+    font-size: 22px;
 }
 
 

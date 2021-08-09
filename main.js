@@ -6,6 +6,7 @@ var currentP1 = '';
 var currentP2 = '';
 
 document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
+document.querySelector('.game-selection-submit').addEventListener('click', gamemodeSelection)
 
 
 
@@ -15,6 +16,21 @@ document.querySelector('#welcomeForm button').addEventListener('click', welcomeS
 
 
 
+
+function gamemodeSelection(event){
+    event.preventDefault();
+    var gamemodeSelection = document.querySelector('#gamemodeSelection input[type=radio]:checked').value
+    if (!gamemodeSelection){
+        console.log("errorMessage")
+    }
+    else if (gamemodeSelection==="normal"){
+
+        console.log("normal")
+    }
+    else if (gamemodeSelection==="spicy"){
+        console.log("spicy")
+    }
+}
 
 
 

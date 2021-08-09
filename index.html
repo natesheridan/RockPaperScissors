@@ -50,11 +50,26 @@
             <p>WINS : #</p>
         </section>
         <section class="game-setup">
-            <form>
-                <label for="normal">😀</label>
-                <input name="gameSelection" type="radio" value="normal">
-                <label for="spicy">🌶</label>
-                <input name="gameSelection" type="radio" value="spicy">
+            <form id="gamemodeSelection">
+                <input name="gameSelection" id="normal" type="radio" value="normal">
+                <label class="game-selection" for="normal">
+                    😀
+                    <h2>Normal</h2>
+                    <p>ROCK > SCISSORS</p>
+                    <p>ROCK > SCISSORS</p>
+                    <p>ROCK > SCISSORS</p>
+                </label>
+                <input name="gameSelection" id="spicy" type="radio" value="spicy">
+                <label class="game-selection" for="spicy">
+                    🌶
+                    <h2>Spicy</h2>
+                    <p>ROCK > SCISSORS</p>
+                    <p>ROCK > SCISSORS</p>
+                    <p>ROCK > SCISSORS</p>
+                    <p>ROCK > SCISSORS</p>
+                    <p>ROCK > SCISSORS</p>
+                </label>
+                <button class="game-selection-submit">Start Playing!</button>
             </form>
         </section>
         <section class="player2 sidebar">
