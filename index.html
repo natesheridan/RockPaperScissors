@@ -12,17 +12,42 @@
     <title>🪨📃✂️</title>
 </head>
 <body>
-    <div class="hidden welcome-view">
+    <div class="welcome-view">
         <h3>🪨📃✂️</h3>
-        <h1>Welcome! What should I call you?</h1>
-        <input autofocus="autofocus" name="user-name" type="text" maxlength="16" size="8">
-        <button>Let's Play!</button>
+        <form id="welcomeForm">
+            <h1>Welcome! What should I call you?</h1>
+            <input autofocus="autofocus" name="user-name" type="text" maxlength="16" size="8">
+            <h2>Choose an Emoji to represent you:</h2>
+            <div class="token-selection">
+                <input type="radio" id="token1" name="token" value="😊" checked>
+                <label for="token1"> 😊 </label>
+                <input type="radio" id="token2" name="token" value="🍔">
+                <label for="token2"> 🍔 </label>
+                <input type="radio" id="token3" name="token" value="🐢">
+                <label for="token3"> 🐢 </label>
+                <input type="radio" id="token4" name="token" value="🖍">
+                <label for="token4"> 🖍 </label>
+                <input type="radio" id="token5" name="token" value="👒">
+                <label for="token5"> 👒 </label>
+                <input type="radio" id="token6" name="token" value="🧠">
+                <label for="token6"> 🧠 </label>
+                <input type="radio" id="token7" name="token" value="💪">
+                <label for="token7"> 💪 </label>
+                <input type="radio" id="token8" name="token" value="😶‍🌫️">
+                <label for="token8"> 😶‍🌫️ </label>
+                <input type="radio" id="token9" name="token" value="🙃">
+                <label for="token9"> 🙃 </label>
+                <input type="radio" id="token10" name="token" value="😂">
+                <label for="token10"> 😂 </label>
+            </div>
+            <button>Let's Play!</button>
+        </form>
     </div>
-    <div class="setup-view">
+    <div class= "setup-view hidden">
         <section class="player1 sidebar">
-            <p>Hi there</p>
-            <p id="userName">TEST</p>
-            <p>You currently have <p id="userWins">#</p> wins stored</p>
+            <h2>🌹</h2>
+            <h3>TEST</h3>
+            <p>WINS : #</p>
         </section>
         <section class="game-setup">
             <form>
@@ -33,9 +58,9 @@
             </form>
         </section>
         <section class="player2 sidebar">
-            <p>Hi there</p>
-            <p id="userName">TEST</p>
-            <p>You currently have <p id="userWins">#</p> wins stored</p>
+            <h2>🌹</h2>
+            <h3>TEST</h3>
+            <p>wins:  #</p>
         </section>
         <h3>🪨📃✂️</h3>
     </div>
