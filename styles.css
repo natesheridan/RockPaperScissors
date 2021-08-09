@@ -1,0 +1,148 @@
+FrequentlyUsed{
+--ksu-purple: #592e83ff;
+--maximum-blue-purple: #9fa0ffff;
+--peach-crayola: #f1bf98ff;
+--ebony: #646f58ff;
+--space-cadet: #192a51ff;
+
+font-family: 'Josefin Sans', sans-serif this is title font;
+font-weight:300/500;
+
+font-family: 'Shadows Into Light', cursive, thisishandwritingfont;
+
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+html {
+    height: 100%;
+}
+
+body{
+    min-height: 0;
+    background: linear-gradient(to left bottom, #192a51ff,#276be0f7), url(https://cdn.dribbble.com/users/2190368/screenshots/4369617/rock-scissors-paper.gif);
+    
+}
+
+/* Title */
+h3 {
+    font-size: 3em;
+    text-align: center;
+}
+
+
+/* Welcome Screen */
+/* Welcome What should I call you? */
+.welcome-view h3{
+    font-size: 5em;
+}
+.welcome-view h1{
+    text-align: center;
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2em;
+    margin-top: 10%;
+}
+/* input line */
+.welcome-view input{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid white;
+    color:white;
+    caret-color: white;
+    font-size: 5em;
+    margin-top: 2%;
+    text-align: center;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.welcome-view button{
+    display: inherit;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+    padding-top: 10px;
+    background-color: transparent;
+    border: solid 3px white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em;
+    color:white;
+    border-radius: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.welcome-view button:hover{
+    color: #9fa0ffff;
+    border-color: #9fa0ffff;
+}
+
+/* Setup Gameplay Screen */
+.setup-view{
+}
+.setup-view h3{
+    position: fixed;
+    font-size: 4vh;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.sidebar{
+    position: fixed;
+    height: 100%;
+    border: 1px solid #fff;
+    width: 20%;
+}
+.sidebar.player1{
+    background-color: rgba(255, 65, 65, 0.31);
+}
+.sidebar.player2{
+    right: 0%;
+    background-color:rgba(66, 94, 255, 0.084)
+}
+
+.game-setup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 40%;
+    background-color:rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+}
+
+.game-setup form{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.208);
+    font-size:10vh;
+}
+.game-setup input[type=radio]{
+    width: 500px;
+}
+
+
+
+/* Gameplay View */
+.gameplay-view{
+
+}
+
+
+
+
+
+
+.hidden{
+    display: none;
+}
+
+*:focus {
+    outline: none;
+}
