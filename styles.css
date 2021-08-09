@@ -5,325 +5,363 @@ FrequentlyUsed{
     
     font-family: 'Shadows Into Light', cursive, thisishandwritingfont;
     
-    }
+}
     
-    html, body {
-        padding: 0;
-        margin: 0;
-    }
-    html {
-        height: 100%;
-    }
+html, body {
+    padding: 0;
+    margin: 0;
+}
+html {
+    height: 100%;
+}
+
+body{
+    min-height: 0;
+    background: linear-gradient(to left bottom, #192a51ff,#276be0f7), url(https://cdn.dribbble.com/users/2190368/screenshots/4369617/rock-scissors-paper.gif);
     
-    body{
-        min-height: 0;
-        background: linear-gradient(to left bottom, #192a51ff,#276be0f7), url(https://cdn.dribbble.com/users/2190368/screenshots/4369617/rock-scissors-paper.gif);
-        
-    }
+}
+
+/* Title */
+h3 {
+    font-size: 3em;
+    text-align: center;
+}
+
+
+/* Popup */
+#popup {
+    position: fixed;
+    height: 5%;
+    width: 40%;
+    border-radius: 30px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2vh;
+    top: 23%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.gold-popup {
+    background-color: rgba(218, 158, 29, 0.726);
+}
+.red-popup {
+    background-color: rgba(218, 73, 29, 0.726);
+}
+.green-popup {
+    background-color: rgba(20, 135, 43, 0.726);
+}
+.blue-popup {
+    background-color: rgba(29, 98, 218, 0.726);
+}
+
+/* Welcome Screen */
+/* Welcome What should I call you? */
+.welcome-view h3{
+    font-size: 5em;
+}
+.welcome-view h1{
+    text-align: center;
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2em;
+    margin-top: 5%;
+}
+
+.welcome-view h2{
+    text-align: center;
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.3em;
+    margin-top: 3%;
+}
+/* input line */
+.welcome-view input{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid white;
+    color:white;
+    caret-color: white;
+    font-size: 5em;
+    margin-top: 2%;
+    text-align: center;
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.token-selection{
+    display: flex;
+    justify-content: space-around;
+    bottom: 0%; 
+    width: 100%;
+    /* border: solid 1px red; */
+}
+.token-selection input[type="radio"]{
+    display: none;
+}
+.token-selection label{
+    display: inline-block;
+    padding: 6px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.153);
+    font-size: 3vw;
+    border-radius: 9px;
+    cursor: pointer;
+}
+.token-selection label:hover{
+    border: 1px solid purple;
+}
+.token-selection input[type="radio"]:checked+label {
+    background-color: rgba(157, 0, 255, 0.18);
+}
+
+.welcome-view button{
+    display: inherit;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+    padding-top: 10px;
+    background-color: transparent;
+    border: solid 3px white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em;
+    color:white;
+    border-radius: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.welcome-view button:hover{
+    color: #9fa0ffff;
+    border-color: #9fa0ffff;
+}
+
+/* Sidebars */
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 20%;
+}
+.sidebar h2{
+    text-align: center;
+    width: 100%;
+    color:white;
+    font-size: 5vw
+}
+.sidebar h3{
+    all: unset;
+    display: block;
+    margin-top: -50px;
+    font-size: 2.5vw;
+    text-align: center;
+    color:white;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.sidebar p{
+    font-size: 1vw;
+    text-align: center;
+    margin-top: -1px;
+    color:#9fa0ffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.sidebar.player1{
+    background-color: rgb(63, 48, 103);
+}
+.sidebar.player2{
+    right: 0%;
+    background-color:rgb(87, 45, 45)
+}
+
+/* Go to setup view button */
+#goToSetupBtn{
+    position: fixed;
+    top: 93%;
+    left: 1%;
+    height: 5vh;
+    width: 18%;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to left bottom, #5682f2,#3270dc);
+    border-radius: 20px;
+    font-size: 2vh;
+    overflow: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white
+}
+
+#goToSetupBtn:hover{
+    background: linear-gradient(to left bottom, #4b71d2,#2d66c9);
+    cursor: pointer;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+#goToSetupBtn p{
+    position: relative;
+    top: 10%;
+    left: 65%;
+    transform: translate(-50%, -50%);
     
-    /* Title */
-    h3 {
-        font-size: 3em;
-        text-align: center;
-    }
-    
-    
-    /* Popup */
-    #popup {
-        position: fixed;
-        height: 5%;
-        width: 40%;
-        border-radius: 30px;
-        text-align: center;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 2vh;
-        top: 78%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    
-    }
-    .gold-popup {
-        background-color: rgba(218, 158, 29, 0.726);
-    }
-    .red-popup {
-        background-color: rgba(218, 73, 29, 0.726);
-    }
-    .green-popup {
-        background-color: rgba(20, 135, 43, 0.726);
-    }
-    .blue-popup {
-        background-color: rgba(29, 98, 218, 0.726);
-    }
-    
-    /* Welcome Screen */
-    /* Welcome What should I call you? */
-    .welcome-view h3{
-        font-size: 5em;
-    }
-    .welcome-view h1{
-        text-align: center;
-        color: #fff;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 2em;
-        margin-top: 5%;
-    }
-    
-    .welcome-view h2{
-        text-align: center;
-        color: #fff;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 1.3em;
-        margin-top: 3%;
-    }
-    /* input line */
-    .welcome-view input{
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        background-color: transparent;
-        border: none;
-        border-bottom: 3px solid white;
-        color:white;
-        caret-color: white;
-        font-size: 5em;
-        margin-top: 2%;
-        text-align: center;
-        font-family: 'Shadows Into Light', cursive;
-    }
-    
-    .token-selection{
-        display: flex;
-        justify-content: space-around;
-        bottom: 0%; 
-        width: 100%;
-        /* border: solid 1px red; */
-    }
-    .token-selection input[type="radio"]{
-        display: none;
-    }
-    .token-selection label{
-        display: inline-block;
-        padding: 6px;
-        border: 2px solid black;
-        background-color: rgba(0, 0, 0, 0.153);
-        font-size: 3vw;
-        border-radius: 9px;
-        cursor: pointer;
-    }
-    .token-selection label:hover{
-        border: 1px solid purple;
-    }
-    .token-selection input[type="radio"]:checked+label {
-        background-color: rgba(157, 0, 255, 0.18);
-    }
-    
-    .welcome-view button{
-        display: inherit;
-        margin-right: auto;
-        margin-left: auto;
-        margin-top: 5%;
-        padding-top: 10px;
-        background-color: transparent;
-        border: solid 3px white;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 3em;
-        color:white;
-        border-radius: 5px;
-        vertical-align: middle;
-        cursor: pointer;
-    }
-    .welcome-view button:hover{
-        color: #9fa0ffff;
-        border-color: #9fa0ffff;
-    }
-    
-    /* Sidebars */
-    .sidebar{
-        position: fixed;
-        height: 100%;
-        width: 20%;
-    }
-    .sidebar h2{
-        text-align: center;
-        width: 100%;
-        color:white;
-        font-size: 5vw
-    }
-    .sidebar h3{
-        all: unset;
-        display: block;
-        margin-top: -50px;
-        font-size: 2.5vw;
-        text-align: center;
-        color:white;
-        width: 100%;
-        font-family: 'Josefin Sans', sans-serif;
-    }
-    .sidebar p{
-        font-size: 1vw;
-        text-align: center;
-        margin-top: -1px;
-        color:#9fa0ffff;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .sidebar.player1{
-        background-color: rgba(255, 65, 65, 0.31);
-    }
-    .sidebar.player2{
-        right: 0%;
-        background-color:rgba(66, 94, 255, 0.084)
-    }
-    
-    
-    
-    /* Setup Gameplay Screen */
-    .setup-view{
-    }
-    .setup-view h3{
-        position: fixed;
-        font-size: 4vh;
-        bottom: 0%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    
-    }
-    
-    .game-setup{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: 70%;
-        width: 40%;
-        background-color:rgba(255, 255, 255, 0.5);
-    }
-    
-    .game-selection h2{
-        font-size: 2vw;
-        font-family: 'Josefin Sans', sans-serif;
-    }
-    .game-selection p{
-        font-size: .3em;
-        font-family: 'Josefin Sans', sans-serif;
-    }
-    
-    .game-setup form{
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: space-around;
-        font-size:10vh;
-        height: 100%;
-    }
-    .game-setup input[type="radio"]{
-        display: none;
-    }
-    .game-setup label{
-        display: inline-block;
-        padding: 20px;
-        border: 2px solid black;
-        background-color: rgba(0, 0, 0, 0.153);
-        font-size: 3vw;
-        cursor: pointer;
-    }
-    .game-setup label:hover{
-        border: 1px solid purple;
-    }
-    .game-setup input[type="radio"]:checked+label {
-        background-color: rgba(157, 0, 255, 0.18);
-    }
-    .game-setup button{
-        font-size: 20px;
-        height: 50px;
-        border:none;
-        background-color: gold;
-        font-family: 'Josefin Sans', sans-serif;
-        cursor: pointer;
-    }
-    .game-setup button:hover{
-        font-size: 22px;
-    }
-    
-    
-    
-    /* Gameplay View */
-    .gameplay-view{
-        position: absolute;
-        background-color: rgba(74, 41, 172, 0.666);
-        width: 50%;
-        height: 50%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .gameplay-view h2{
-        position: absolute;
-        text-align: center;
-        font-family: 'Press Start 2P', cursive;
-        font-size: 5vw;
-        top: 35%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    #RPSSelection{
-        display: flex;
-        position: absolute;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        height: 100%;
-        width:30%;
-        left: 5%   
-    }
-    #RPSSelection input[type="radio"]{
-        display: none;
-    }
-    #RPSSelection label{
-        display: inline-block;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        padding: 20px;
-        border: 2px solid black;
-        background-color: rgba(0, 0, 0, 0.153);
-        font-size: 5vh;
-        cursor: pointer;
-    }
-    #RPSSelection label:hover{
-        border: 1px solid rgb(4, 203, 77);
-    }
-    #RPSSelection input[type="radio"]:checked+label {
-        background-color: rgba(31, 198, 16, 0.473);
-    }
-    .opponent-selection{
-        position: absolute;
-        display: flex;
-        text-align: center;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        width: 30%;
-        right: 5%;
-    }
-    .opponent-selection p{
-        display: inline-block;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        padding: 20px;
-        background-color: rgba(109, 62, 116, 0);
-        font-size: 5vh;
-    }
-    
-    
-    
-    
-    
-    
-    
-    .hidden{
-        display: none;
-    }
-    
-    *:focus {
-        outline: none;
-    }
+}
+
+/* Setup Gameplay Screen */
+.setup-view{
+}
+.setup-view h3{
+    position: fixed;
+    font-size: 4vh;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.game-setup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 40%;
+    background-color:rgba(255, 255, 255, 0);
+}
+
+.game-selection h2{
+    font-size: 2vw;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.game-selection p{
+    font-size: .3em;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.game-setup form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    font-size:10vh;
+    height: 100%;
+}
+.game-setup input[type="radio"]{
+    display: none;
+}
+.game-setup label{
+    display: inline-block;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.153);
+    font-size: 3vw;
+    cursor: pointer;
+}
+.game-setup label:hover{
+    border: 1px solid purple;
+}
+.game-setup input[type="radio"]:checked+label {
+    background-color: rgba(157, 0, 255, 0.18);
+}
+.game-setup button{
+    font-size: 20px;
+    height: 50px;
+    border:none;
+    background-color: gold;
+    font-family: 'Josefin Sans', sans-serif;
+    cursor: pointer;
+}
+.game-setup button:hover{
+    font-size: 22px;
+}
+
+
+
+/* Gameplay View */
+.gameplay-view{
+    position: absolute;
+    background-color: transparent;
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.gameplay-view h2{
+    position: absolute;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 5vw;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#RPSSelection{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width:30%;
+    left: 5%   
+}
+#RPSSelection input[type="radio"]{
+    display: none;
+}
+#RPSSelection label{
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.153);
+    font-size: 5vh;
+    cursor: pointer;
+}
+#RPSSelection label:hover{
+    border: 1px solid rgb(4, 203, 77);
+}
+#RPSSelection input[type="radio"]:checked+label {
+    background-color: rgba(31, 198, 16, 0.473);
+}
+.opponent-selection{
+    position: absolute;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 30%;
+    right: 5%;
+}
+.opponent-selection p{
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: rgba(109, 62, 116, 0);
+    font-size: 5vh;
+}
+
+
+
+.fade-long {
+    animation:fadeIn 1.2s linear;
+}
+.fade-short{
+    animation: fadeIn .2s linear;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.hidden{
+    display: none;
+}
+
+*:focus {
+    outline: none;
+}
