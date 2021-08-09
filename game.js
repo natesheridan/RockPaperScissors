@@ -7,20 +7,21 @@ class Game{
 
     runGame(){
 
-        
         var p1Selection = this.player1.takeTurn();
         var p2Selection =  this.player2.takeTurn();
         if (p1Selection === p2Selection){
             console.log("DRAW!")
-            return `${p1Selection}`
+            return `DRAW both chose ${p1Selection}`
         }
         else if (p1Selection === "rock"){
             if(p2Selection ==="paper"){
                 console.log(`${this.player2.name}${this.player2.token} wins with ${p2Selection}!`)
+                currentP2.wins++
                 return `p2-win`
             }
             else{
                 console.log(`${this.player1.name}${this.player1.token} wins with ${p1Selection}!`)
+                currentP1.wins++
                 return `p1-win`
             }
         }
@@ -28,10 +29,12 @@ class Game{
         else if (p1Selection === "paper"){
             if(p2Selection ==="scissors"){
                 console.log(`${this.player2.name}${this.player2.token} wins with ${p2Selection}!`)
+                currentP2.wins++
                 return `p2-win`
             }
             else{
                 console.log(`${this.player1.name}${this.player1.token} wins with ${p1Selection}!`)
+                currentP1.wins++
                 return `p1-win`
             }
         }
@@ -39,10 +42,12 @@ class Game{
         else if (p1Selection === "scissors"){
             if(p2Selection ==="rock"){
                 console.log(`${this.player2.name}${this.player2.token} wins with ${p2Selection}!`)
+                currentP2.wins++
                 return `p2-win`
             }
             else{
                 console.log(`${this.player1.name}${this.player1.token} wins with ${p1Selection}!`)
+                currentP1.wins++
                 return `p1-win`
             }
         }

@@ -1,9 +1,10 @@
 class Player{
-    constructor(name, token){
+    constructor(name, token = "😬"){
         this.type = "human"
         this.name = name;
         this.wins = 0;
         this.token = token;
+        this.currentSelection =""
 
     }
     saveWinsToStorage(){
@@ -13,8 +14,10 @@ class Player{
 
     }
     takeTurn(selection){
-        
-        return `${selection}`
+        if (selection){
+            this.currentSelection = selection;
+        }
+        return `${this.currentSelection}`
     }
 
 
