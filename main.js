@@ -106,7 +106,6 @@ function gameStart(gametype = "normal"){
     isGameRunning = true;
     var rpsSelection = returnRPSSelection()
     var game = new Game(currentP1, currentP2)
-    console.log(game)
     popupMessage(`Game has begun your answer (${rpsSelection}) will be locked in : 5`, 950)
     setTimeout(function(){
         var rpsSelection = returnRPSSelection()
@@ -154,7 +153,7 @@ function gamemodeSelection(event){
             popupMessage(`Select your fighter on the left side to start the game!`, 3333, "blue")
         }, 500)
     }
-    else if (gamemodeSelection==="spicy"){
+    else if (gamemodeSelection==="SPICYEDITTHISWHENSPICYISWORKING"){
         goToGamemode("spicy")
         setTimeout(function(){
             popupMessage(`Select your fighter on the left side to start the game!`, 3333, "blue")
