@@ -1,11 +1,9 @@
 class Computer{
-    constructor(name, token){
+    constructor(name){
         this.type = "cpu"
         this.name = name;
         this.wins = 0;
         this.token = "💻";
-        this.winningGif = "";
-        this.losingGif = "";
     }
     takeTurn(){
         var selection = '';
@@ -25,4 +23,3 @@ class Computer{
 
 
 }
-

@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600&family=Shadows+Into+Light&family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>🪨📃✂️</title>
 </head>
 <body>
-    <div class="welcome-view">
+    <div class=" welcome-view">
         <h3>🪨📃✂️</h3>
         <form id="welcomeForm">
             <h1>Welcome! What should I call you?</h1>
@@ -44,11 +44,6 @@
         </form>
     </div>
     <div class= "setup-view hidden">
-        <section class="player1 sidebar">
-            <h2>🌹</h2>
-            <h3>TEST</h3>
-            <p>WINS : #</p>
-        </section>
         <section class="game-setup">
             <form id="gamemodeSelection">
                 <input name="gameSelection" id="normal" type="radio" value="normal">
@@ -72,23 +67,38 @@
                 <button class="game-selection-submit">Start Playing!</button>
             </form>
         </section>
-        <section class="player2 sidebar">
-            <h2>🌹</h2>
-            <h3>TEST</h3>
-            <p>wins:  #</p>
-        </section>
         <h3>🪨📃✂️</h3>
     </div>
-    <div class="hidden gameplay-view">
-        <form>
-            <label for="rock">🪨</label>
-            <input name="rps" type="radio" value="rock">
-            <label for="paper">📄</label>
-            <input name="rps" type="radio" value="paper">
-            <label for="scissors">✂️</label>
-            <input name="rps" type="radio" value="paper">
-        </form>
+    <div class="gameplay-view hidden">
+        <section class="gameplay-main-screen">
+            <form id="RPSSelection">
+                <input name="rps" id="rock" type="radio" value="rock">
+                <label for="rock">🪨
+                </label>
+                <input name="rps" id="paper" type="radio" value="paper">
+                <label for="paper">📄
+                </label>
+                <input name="rps" id="scissors" type="radio" value="scissors">
+                <label for="scissors">✂️
+                </label>
+            </form>
+            <h2>VS</h2>
+            <span class="opponent-selection">
+                <p class="">🪨</p>
+                <p>📄</p>
+                <p>✂️</p>
+            </span>
+        </section>
     </div>
+    <div class="sidebars hidden">
+        <section class="player1 sidebar">
+        </section>
+        <section class="player2 sidebar">
+        </section>
+    </div>
+    <span class="hidden" id="popup">
+        <p>Popup Test Text</p>
+    </span>
 </body>
 <script type="text/javascript" src="./player.js"></script>
 <script type="text/javascript" src="./computer.js"></script>
