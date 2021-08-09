@@ -15,40 +15,34 @@ class Game{
         }
         else if (p1Selection === "rock"){
             if(p2Selection ==="paper"){
-                console.log(`${this.player2.name}${this.player2.token} wins with ${p2Selection}!`)
                 currentP2.wins++
-                return `p2-win`
+                return `${this.player2.name} ${this.player2.token} WINS w/ ${p2Selection} beating ${p1Selection}!`
             }
             else{
-                console.log(`${this.player1.name}${this.player1.token} wins with ${p1Selection}!`)
                 currentP1.wins++
-                return `p1-win`
+                return `${this.player1.name} ${this.player1.token} WINS w/ ${p1Selection} beating ${p2Selection}!`
             }
         }
 
         else if (p1Selection === "paper"){
             if(p2Selection ==="scissors"){
-                console.log(`${this.player2.name}${this.player2.token} wins with ${p2Selection}!`)
                 currentP2.wins++
-                return `p2-win`
+                return `${this.player2.name} ${this.player2.token} WINS w/ ${p2Selection} beating ${p1Selection}!`
             }
             else{
-                console.log(`${this.player1.name}${this.player1.token} wins with ${p1Selection}!`)
                 currentP1.wins++
-                return `p1-win`
+                return `${this.player1.name} ${this.player1.token} WINS w/ ${p1Selection} beating ${p2Selection}!`
             }
         }
 
         else if (p1Selection === "scissors"){
             if(p2Selection ==="rock"){
-                console.log(`${this.player2.name}${this.player2.token} wins with ${p2Selection}!`)
                 currentP2.wins++
-                return `p2-win`
+                return `${this.player2.name} ${this.player2.token} WINS w/ ${p2Selection} beating ${p1Selection}!`
             }
             else{
-                console.log(`${this.player1.name}${this.player1.token} wins with ${p1Selection}!`)
                 currentP1.wins++
-                return `p1-win`
+                return `${this.player1.name} ${this.player1.token} WINS w/ ${p1Selection} beating ${p2Selection}!`
             }
         }
 
