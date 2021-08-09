@@ -4,6 +4,7 @@ class Computer{
         this.name = name;
         this.wins = 0;
         this.token = "💻";
+        this.currentSelection;
     }
     takeTurn(){
         var selection = '';
@@ -17,6 +18,7 @@ class Computer{
         else if(randomNumber0to2===2){
             selection = "scissors";
         }
+        this.currentSelection = selection;
         return `${selection}`;
     }
 

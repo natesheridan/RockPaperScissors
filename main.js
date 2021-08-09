@@ -26,11 +26,14 @@ function displayWinner(){
 
 }
 
-var rpsFormElement = document.querySelector('#RPSSelection')
+var player1Display = document.querySelector('#RPSSelection')
+var player2Display = document.querySelector('.opponent-selection')
+
+
 
 function resetRPSSelection(){
-    rpsFormElement.innerHTML = ``;
-    rpsFormElement.innerHTML = `
+    player1Display.innerHTML = ``;
+    player1Display.innerHTML = `
     <input name="rps" id="rock" type="radio" value="rock">
     <label for="rock">🪨
     </label>
@@ -39,19 +42,64 @@ function resetRPSSelection(){
     </label>
     <input name="rps" id="scissors" type="radio" value="scissors">
     <label for="scissors">✂️
-    </label>`
+    </label>
+    `
+
+    player2Display.innerHTML = ``;
+    player2Display.innerHTML = `
+    <p>🪨</p>
+    <p>📄</p>
+    <p>✂️</p>
+    `
+    
 }
 
 function returnRPSSelection(){
     var rpsSelection = document.querySelector('#RPSSelection input[type=radio]:checked');
     return rpsSelection.value;
 }
-
+function showPlayersSelection(){
+    var p1Selection = currentP1.currentSelection;
+    var p2Selection = currentP2.currentSelection;
+    if (p1Selection === "rock"){
+        player1Display.innerHTML = `
+        <input name="rps" id="rock" type="radio" value="rock">
+        <label for="rock">🪨
+        </label>
+        `
+    }
+    else if (p1Selection === "paper"){
+        player1Display.innerHTML = `
+        <input name="rps" id="paper" type="radio" value="paper">
+        <label for="paper">📄
+        </label>
+        `
+    }
+    else if (p1Selection === "scissors"){
+        player1Display.innerHTML = `
+        <input name="rps" id="scissors" type="radio" value="scissors">
+        <label for="scissors">✂️
+        </label>
+        `
+    }
+    if (p2Selection === "rock"){
+        player2Display.innerHTML = `<p>🪨</p>
+        `
+    }
+    else if (p2Selection === "paper"){
+        player2Display.innerHTML = `<p>📄</p>
+        `
+    }
+    else if (p2Selection === "scissors"){
+        player2Display.innerHTML = `<p>✂️</p>
+        `
+    }
+}
 
 
 var isGameRunning = false;
 
-function gameStart(){
+function gameStart(gametype = "normal"){
     if (isGameRunning){
         return
     }
@@ -82,28 +130,35 @@ function gameStart(){
         popupMessage(`Your answer (${rpsSelection}) has been locked in!`, 2500, "green")
     }, 5000)
     setTimeout(function(){
-        popupMessage(game.runGame(), 2000)
+        popupMessage(game.runGame(), 7000)
+        showPlayersSelection()
         updatePlayerSidebars()
 
     }, 8000)
     setTimeout(function(){
         isGameRunning = false;
         resetRPSSelection()
-    }, 10000)
+    }, 15000)
 
 }
 
 function gamemodeSelection(event){
     event.preventDefault();
     var gamemodeSelection = document.querySelector('#gamemodeSelection input[type=radio]:checked').value
-    if (!gamemodeSelection){
+    if (gamemodeSelection===null){
         console.log("errorMessage")
     }
     else if (gamemodeSelection==="normal"){
         goToGamemode("normal")
+        setTimeout(function(){
+            popupMessage(`Select your fighter on the left side to start the game!`, 3333, "blue")
+        }, 500)
     }
     else if (gamemodeSelection==="spicy"){
         goToGamemode("spicy")
+        setTimeout(function(){
+            popupMessage(`Select your fighter on the left side to start the game!`, 3333, "blue")
+        }, 500)
     }
 }
 
@@ -128,6 +183,8 @@ function welcomeScrnSubmit(event){
     currentP2 = new Computer ("Computer")
     updatePlayerSidebars()
     goToView(setupView)
+
+
 
 
 };
@@ -179,6 +236,7 @@ function popupMessage(message, timeInMS, color = "gold"){
     show(popupContainer)
 
     setTimeout(function(){
+        popupContainer.classList.remove(`${color}-popup`)
         hide(popupContainer);
     }, timeInMS)
 }
