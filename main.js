@@ -7,8 +7,10 @@ var currentView = '';
 var currentP1 = '';
 var currentP2 = '';
 var rpsRadios = document.querySelector('#RPSSelection')
+var goToSetupBtn = document.querySelector('#goToSetupBtn')
 
 rpsRadios.addEventListener('input', gameStart)
+goToSetupBtn.addEventListener('click', function(){goToView(setupView)})
 
 
 document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
@@ -22,9 +24,6 @@ document.querySelector('.game-selection-submit').addEventListener('click', gamem
 
 
 
-function displayWinner(){
-
-}
 
 var player1Display = document.querySelector('#RPSSelection')
 var player2Display = document.querySelector('.opponent-selection')
@@ -164,6 +163,7 @@ function gamemodeSelection(event){
 function goToGamemode(gamemode){
     if (gamemode === "normal"){
         goToView(gameplayView)
+        show (goToSetupBtn)
     }
     else if (gamemode == "spicy"){
         return;
@@ -176,6 +176,7 @@ function welcomeScrnSubmit(event){
     var userName = document.querySelector('#welcomeForm input[type=text]').value
     var userToken = document.querySelector('#welcomeForm input[type=radio]:checked').value
     if (!userName){
+        popupMessage("Please provide a name", 1500, "red")
         return
     }
     currentP1 = new Player (userName, userToken)
@@ -213,6 +214,7 @@ function goToView(view){
     hide(welcomeView)
     hide(setupView)
     hide(gameplayView)
+    hide(goToSetupBtn)
     show(sidebars)
     show(view)
     updatePlayerSidebars();
