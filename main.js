@@ -26,14 +26,27 @@ function displayWinner(){
 
 }
 
-function populateNewGame(){
-    gameplayMainScreen.innerHTML = '';
+var rpsFormElement = document.querySelector('#RPSSelection')
+
+function resetRPSSelection(){
+    rpsFormElement.innerHTML = ``;
+    rpsFormElement.innerHTML = `
+    <input name="rps" id="rock" type="radio" value="rock">
+    <label for="rock">🪨
+    </label>
+    <input name="rps" id="paper" type="radio" value="paper">
+    <label for="paper">📄
+    </label>
+    <input name="rps" id="scissors" type="radio" value="scissors">
+    <label for="scissors">✂️
+    </label>`
 }
 
 function returnRPSSelection(){
     var rpsSelection = document.querySelector('#RPSSelection input[type=radio]:checked');
     return rpsSelection.value;
 }
+
 
 
 var isGameRunning = false;
@@ -71,9 +84,11 @@ function gameStart(){
     setTimeout(function(){
         popupMessage(game.runGame(), 2000)
         updatePlayerSidebars()
+
     }, 8000)
     setTimeout(function(){
         isGameRunning = false;
+        resetRPSSelection()
     }, 10000)
 
 }
