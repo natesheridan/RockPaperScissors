@@ -62,7 +62,6 @@ class Game{
             var p1Selection = this.player1.takeTurn();
             var p2Selection =  this.player2.takeTurn(gamemode);
             if (p1Selection === p2Selection){
-                console.log("DRAW!")
                 return `DRAW both chose ${p1Selection}`
             }
             if (p1Selection === "rock"){

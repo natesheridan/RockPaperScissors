@@ -7,7 +7,8 @@ class Player{
         this.spicyWins = 0;
         this.losses = 0;
         this.token = token;
-        this.currentSelection =""
+        this.currentSelection ="";
+        this.uniqueID = "";
 
     }
     saveWinsToStorage(){
@@ -21,6 +22,11 @@ class Player{
             this.currentSelection = selection;
         }
         return `${this.currentSelection}`
+    }
+    setUniqueID(){
+        if (!this.uniqueID){
+            this.uniqueID = Date.now();
+        }
     }
 
 

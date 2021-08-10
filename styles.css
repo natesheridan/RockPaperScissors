@@ -182,7 +182,7 @@ h3 {
 }
 
 /* Go to setup view button */
-#goToSetupBtn{
+#goToSetupBtn, #saveToStorage, #loginWDiffName{
     position: fixed;
     top: 93%;
     left: 1%;
@@ -198,19 +198,25 @@ h3 {
     color: white
 }
 
-#goToSetupBtn:hover{
+#goToSetupBtn:hover, #saveToStorage:hover, #loginWDiffName:hover{
     background: linear-gradient(to left bottom, #4b71d2,#2d66c9);
     cursor: pointer;
     border-radius: 25px;
     border: 1px solid black;
 }
 
-#goToSetupBtn p{
+#goToSetupBtn p, #saveToStorage p, #loginWDiffName p{
     position: relative;
     top: 10%;
     left: 65%;
     transform: translate(-50%, -50%);
     
+}
+#loginWDiffName{
+    top: 80%;
+}
+#saveToStorage{
+    top: 70%;
 }
 
 /* Setup Gameplay Screen */
