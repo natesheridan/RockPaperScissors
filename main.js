@@ -1,3 +1,4 @@
+var LS = localStorage
 var currentView = '';
 var currentP1 = '';
 var currentP2 = '';
@@ -14,6 +15,8 @@ var saveToStorageBtn = document.querySelector('#saveToStorage')
 var loginBtn = document.querySelector('#loginWDiffName')
 var player1Display = document.querySelector('#RPSSelection')
 var player2Display = document.querySelector('.opponent-selection')
+var arrayParsed;
+var currentPlayerIndex;
 var rpsP1NormalSelectionDefault = `
 <input name="rps" id="rock" type="radio" value="rock">
 <label for="rock">⛰️
@@ -56,21 +59,23 @@ var rpsP2SpicySelectionDefault= `
 `
 rpsRadios.addEventListener('input', gameStart)
 goToSetupBtn.addEventListener('click', function(){goToView(setupView)})
-saveToStorageBtn.addEventListener('click', )
+saveToStorageBtn.addEventListener('click', pushToLocalStorage)
 
 
 document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
 document.querySelector('#gamemodeSelection').addEventListener('input', gamemodeSelection)
-var LS = localStorage
-var arrayParsed;
-var currentPlayerIndex;
 
 function pullFromLocalStorage(){
     var searchQuery = currentP1.name;
     for (var i = 0; i < arrayParsed.length; i++) {
         var search = arrayParsed[i].name
         if (search === searchQuery){
-            currentP1 = arrayParsed[i]
+            currentP1.username = arrayParsed[i].userName
+            currentP1.losses = arrayParsed[i].losses
+            currentP1.overallWins = arrayParsed[i].overallWins
+            currentP1.normalWins = arrayParsed[i].normalWins
+            currentP1.spicyWins = arrayParsed[i].spicyWins
+            currentP1.token = arrayParsed[i].token
             currentPlayerIndex = i;
             popupMessage(`Results found for ${searchQuery}! Save loaded!`, 1500, "green")
             return
@@ -81,15 +86,15 @@ function pullFromLocalStorage(){
 }
 function pushToLocalStorage(){
     if (currentPlayerIndex){
-    arrayParsed[currentPlayerIndex] = currentP1;
+        arrayParsed[currentPlayerIndex] = currentP1;
     }
     else {
-    arrayParsed.push(currentP1)
+        arrayParsed.push(currentP1)
+        currentPlayerIndex = arrayParsed.length -1;
     }
     var arrToSet = JSON.stringify(arrayParsed);
     LS.setItem('savedUsers', arrToSet)
-    currentPlayerIndex = arrayParsed.length -1;
-    popupMessage(`A local save with the name of: ${searchQuery} has been made!`, 1500, "green")
+    popupMessage(`A local save with the name of: ${currentP1.name} has been made!`, 1500, "green")
 }
 
 function updateDataModelStorage(){
@@ -275,6 +280,7 @@ function welcomeScrnSubmit(event){
     currentP1 = new Player (userName, userToken)
     currentP1.setUniqueID();
     currentP2 = new Computer ("Computer")
+    pullFromLocalStorage()
     updatePlayerSidebars()
     goToView(setupView)
 
@@ -283,10 +289,6 @@ function welcomeScrnSubmit(event){
 
 }
 
-function pageLoadLS(){
-    if (TRUE){
-    }
-}
 
 function updatePlayerSidebars(){
     var userName = currentP1.name;
@@ -330,12 +332,10 @@ function goToView(view){
     hide(gameplayView)
     hide(goToSetupBtn)
     hide(saveToStorageBtn)
-    hide(loginBtn)
     show(sidebars)
     show(view)
     if(view===setupView){
         show(saveToStorageBtn)
-        show(loginBtn)
     }
     updatePlayerSidebars();
     currentView = view
