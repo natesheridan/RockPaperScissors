@@ -10,6 +10,8 @@ var sidebars = document.querySelector('.sidebars')
 var gameplayMainScreen = document.querySelector('.gameplay-main-screen')
 var rpsRadios = document.querySelector('#RPSSelection')
 var goToSetupBtn = document.querySelector('#goToSetupBtn')
+var saveToStorageBtn = document.querySelector('#saveToStorage')
+var loginBtn = document.querySelector('#loginWDiffName')
 var player1Display = document.querySelector('#RPSSelection')
 var player2Display = document.querySelector('.opponent-selection')
 var rpsP1NormalSelectionDefault = `
@@ -54,19 +56,46 @@ var rpsP2SpicySelectionDefault= `
 `
 rpsRadios.addEventListener('input', gameStart)
 goToSetupBtn.addEventListener('click', function(){goToView(setupView)})
+saveToStorageBtn.addEventListener('click', )
+
 
 document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
 document.querySelector('#gamemodeSelection').addEventListener('input', gamemodeSelection)
+var LS = localStorage
+var arrayParsed;
+var currentPlayerIndex;
 
+function pullFromLocalStorage(){
+    var searchQuery = currentP1.name;
+    for (var i = 0; i < arrayParsed.length; i++) {
+        var search = arrayParsed[i].name
+        if (search === searchQuery){
+            currentP1 = arrayParsed[i]
+            currentPlayerIndex = i;
+            popupMessage(`Results found for ${searchQuery}! Save loaded!`, 1500, "green")
+            return
+        }
 
+    }
+    popupMessage(`No local save results found for ${searchQuery}!`, 1500, "red")
+}
+function pushToLocalStorage(){
+    if (currentPlayerIndex){
+    arrayParsed[currentPlayerIndex] = currentP1;
+    }
+    else {
+    arrayParsed.push(currentP1)
+    }
+    var arrToSet = JSON.stringify(arrayParsed);
+    LS.setItem('savedUsers', arrToSet)
+    currentPlayerIndex = arrayParsed.length -1;
+    popupMessage(`A local save with the name of: ${searchQuery} has been made!`, 1500, "green")
+}
 
-
-
-
-
-
-
-
+function updateDataModelStorage(){
+    lsRawUserArray=LS.getItem('savedUsers')
+    arrayParsed = JSON.parse(lsRawUserArray)
+}
 
 function resetBoard(gamemode){
     if (gamemode === "normal"){
@@ -88,6 +117,7 @@ function returnRPSSelection(){
     var rpsSelection = document.querySelector('#RPSSelection input[type=radio]:checked');
     return rpsSelection.value;
 }
+
 function showPlayersSelection(){
     var p1Selection = currentP1.currentSelection;
     var p2Selection = currentP2.currentSelection;
@@ -147,8 +177,6 @@ function showPlayersSelection(){
         `
     }
 }
-
-
 
 function gameStart(){
     if (isGameRunning){
@@ -236,7 +264,6 @@ function setupGamemode(gamemode){
     }
 }
 
-
 function welcomeScrnSubmit(event){
     event.preventDefault();
     var userName = document.querySelector('#welcomeForm input[type=text]').value
@@ -246,6 +273,7 @@ function welcomeScrnSubmit(event){
         return
     }
     currentP1 = new Player (userName, userToken)
+    currentP1.setUniqueID();
     currentP2 = new Computer ("Computer")
     updatePlayerSidebars()
     goToView(setupView)
@@ -253,7 +281,12 @@ function welcomeScrnSubmit(event){
 
 
 
-};
+}
+
+function pageLoadLS(){
+    if (TRUE){
+    }
+}
 
 function updatePlayerSidebars(){
     var userName = currentP1.name;
@@ -291,23 +324,28 @@ function updatePlayerSidebars(){
     `
 }
 
-
 function goToView(view){
     hide(welcomeView)
     hide(setupView)
     hide(gameplayView)
     hide(goToSetupBtn)
+    hide(saveToStorageBtn)
+    hide(loginBtn)
     show(sidebars)
     show(view)
+    if(view===setupView){
+        show(saveToStorageBtn)
+        show(loginBtn)
+    }
     updatePlayerSidebars();
     currentView = view
 }
-
 
 function hide(element){
     element.classList.add('hidden');
     
 }
+
 function show(element){
     element.classList.remove('hidden');
 }
@@ -323,3 +361,5 @@ function popupMessage(message, timeInMS, color = "gold"){
         hide(popupContainer);
     }, timeInMS)
 }
+
+updateDataModelStorage()
