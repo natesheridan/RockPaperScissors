@@ -15,8 +15,8 @@ var saveToStorageBtn = document.querySelector('#saveToStorage')
 var loginBtn = document.querySelector('#loginWDiffName')
 var player1Display = document.querySelector('#RPSSelection')
 var player2Display = document.querySelector('.opponent-selection')
-var arrayParsed;
-var currentPlayerIndex;
+var arrayParsed = [];
+var currentPlayerIndex = null;
 var rpsP1NormalSelectionDefault = `
 <input name="rps" id="rock" type="radio" value="rock">
 <label for="rock">⛰️
@@ -67,6 +67,9 @@ document.querySelector('#gamemodeSelection').addEventListener('input', gamemodeS
 
 function pullFromLocalStorage(){
     var searchQuery = currentP1.name;
+    if (!arrayParsed){
+        return
+    }
     for (var i = 0; i < arrayParsed.length; i++) {
         var search = arrayParsed[i].name
         if (search === searchQuery){
@@ -85,13 +88,11 @@ function pullFromLocalStorage(){
     popupMessage(`No local save results found for ${searchQuery}!`, 1500, "red")
 }
 function pushToLocalStorage(){
-    if (currentPlayerIndex){
-        arrayParsed[currentPlayerIndex] = currentP1;
+    if (LS.length===0){
+        arrayParsed = [currentP1];
+        currentPlayerIndex = 0;
     }
-    else {
-        arrayParsed.push(currentP1)
-        currentPlayerIndex = arrayParsed.length -1;
-    }
+    arrayParsed[currentPlayerIndex] = currentP1;
     var arrToSet = JSON.stringify(arrayParsed);
     LS.setItem('savedUsers', arrToSet)
     popupMessage(`A local save with the name of: ${currentP1.name} has been made!`, 1500, "green")
@@ -215,14 +216,12 @@ function gameStart(){
     setTimeout(function(){
         if (currentGamemode === "normal"){
             popupMessage(game.runGame("normal"), 7000);
-            showPlayersSelection()
-            updatePlayerSidebars()
         }
         else if (currentGamemode === "spicy"){
             popupMessage(game.runGame("spicy"), 7000);
-            showPlayersSelection()
-            updatePlayerSidebars()
         }
+        showPlayersSelection()
+        updatePlayerSidebars()
 
     }, 8000)
     setTimeout(function(){
