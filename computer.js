@@ -6,22 +6,41 @@ class Computer{
         this.token = "💻";
         this.currentSelection;
     }
-    takeTurn(){
-        var selection = '';
-        var randomNumber0to2 = (Math.floor(Math.random() * 3))
-        if (randomNumber0to2===0){
-            selection = "rock";
+    takeTurn(gamemode = "normal"){
+        if(gamemode === "normal"){
+            var num = 3;   
         }
-        else if(randomNumber0to2===1){
-            selection = "paper";
+        if (gamemode === "spicy"){
+            var num = 5;
         }
-        else if(randomNumber0to2===2){
-            selection = "scissors";
-        }
-        this.currentSelection = selection;
-        return `${selection}`;
+        var randomNumber = randomNum(num)
+        var selectionResult = returnSelection(randomNumber)
+        this.currentSelection = selectionResult
+        return `${this.currentSelection}`
     }
 
 
 
+}
+function randomNum(numRange){
+    var randomNumber = (Math.floor(Math.random() * numRange));
+    return randomNumber
+}
+
+function returnSelection(number){
+    if (number===0){
+        return `rock`
+    }
+    if (number===1){
+        return `paper`
+    }
+    if (number===2){
+        return `scissors`
+    }
+    if (number===3){
+        return `lizard`
+    }
+    if (number===4){
+        return `alien`
+    }
 }
