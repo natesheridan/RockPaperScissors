@@ -6,6 +6,7 @@ var gameplayMainScreen = document.querySelector('.gameplay-main-screen')
 var currentView = '';
 var currentP1 = '';
 var currentP2 = '';
+var currentGamemode = '';
 var rpsRadios = document.querySelector('#RPSSelection')
 var goToSetupBtn = document.querySelector('#goToSetupBtn')
 
@@ -16,6 +17,7 @@ goToSetupBtn.addEventListener('click', function(){goToView(setupView)})
 document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
 document.querySelector('.game-selection-submit').addEventListener('click', gamemodeSelection)
 
+var isGameRunning = false;
 
 
 
@@ -29,27 +31,63 @@ var player1Display = document.querySelector('#RPSSelection')
 var player2Display = document.querySelector('.opponent-selection')
 
 
+var rpsP1NormalSelectionDefault = `
+<input name="rps" id="rock" type="radio" value="rock">
+<label for="rock">🪨
+</label>
+<input name="rps" id="paper" type="radio" value="paper">
+<label for="paper">📄
+</label>
+<input name="rps" id="scissors" type="radio" value="scissors">
+<label for="scissors">✂️
+</label>
+`
+var rpsP1SpicySelectionDefault = `
+<input name="rps" id="rock" type="radio" value="rock">
+<label for="rock">🪨
+</label>
+<input name="rps" id="paper" type="radio" value="paper">
+<label for="paper">📄
+</label>
+<input name="rps" id="scissors" type="radio" value="scissors">
+<label for="scissors">✂️
+</label>
+<input name="rps" id="lizard" type="radio" value="lizard">
+<label for="lizard">🦎
+</label>
+<input name="rps" id="alien" type="radio" value="alien">
+<label for="alien">👽
+</label>
+`
+var rpsP2NormalSelectionDefault = `
+<p>🪨</p>
+<p>📄</p>
+<p>✂️</p>
+`
+var rpsP2SpicySelectionDefault= `
+<p>🪨</p>
+<p>📄</p>
+<p>✂️</p>
+<p>🦎</p>
+<p>👽</p>
+`
 
-function resetRPSSelection(){
-    player1Display.innerHTML = ``;
-    player1Display.innerHTML = `
-    <input name="rps" id="rock" type="radio" value="rock">
-    <label for="rock">🪨
-    </label>
-    <input name="rps" id="paper" type="radio" value="paper">
-    <label for="paper">📄
-    </label>
-    <input name="rps" id="scissors" type="radio" value="scissors">
-    <label for="scissors">✂️
-    </label>
-    `
 
-    player2Display.innerHTML = ``;
-    player2Display.innerHTML = `
-    <p>🪨</p>
-    <p>📄</p>
-    <p>✂️</p>
-    `
+
+
+function resetBoard(gamemode){
+    if (gamemode === "normal"){
+        player1Display.innerHTML = ``;
+        player1Display.innerHTML = rpsP1NormalSelectionDefault;
+        player2Display.innerHTML = ``;
+        player2Display.innerHTML = rpsP2NormalSelectionDefault;
+    }
+    else if (gamemode === "spicy"){
+        player1Display.innerHTML = ``;
+        player1Display.innerHTML = rpsP1SpicySelectionDefault;
+        player2Display.innerHTML = ``;
+        player2Display.innerHTML = rpsP2SpicySelectionDefault;
+    }
     
 }
 
@@ -81,6 +119,20 @@ function showPlayersSelection(){
         </label>
         `
     }
+    else if (p1Selection === "lizard"){
+        player1Display.innerHTML = `
+        <input name="rps" id="lizard" type="radio" value="lizard">
+        <label for="lizard">🦎
+        </label>
+        `
+    }
+    else if (p1Selection === "alien"){
+        player1Display.innerHTML = `
+        <input name="rps" id="alien" type="radio" value="alien">
+        <label for="alien">👽
+        </label>
+        `
+    }
     if (p2Selection === "rock"){
         player2Display.innerHTML = `<p>🪨</p>
         `
@@ -93,12 +145,19 @@ function showPlayersSelection(){
         player2Display.innerHTML = `<p>✂️</p>
         `
     }
+    else if (p2Selection === "lizard"){
+        player2Display.innerHTML = `<p>🦎</p>
+        `
+    }
+    else if (p2Selection === "alien"){
+        player2Display.innerHTML = `<p>👽</p>
+        `
+    }
 }
 
 
-var isGameRunning = false;
 
-function gameStart(gametype = "normal"){
+function gameStart(){
     if (isGameRunning){
         return
     }
@@ -128,14 +187,21 @@ function gameStart(gametype = "normal"){
         popupMessage(`Your answer (${rpsSelection}) has been locked in!`, 2500, "green")
     }, 5000)
     setTimeout(function(){
-        popupMessage(game.runGame(), 7000)
-        showPlayersSelection()
-        updatePlayerSidebars()
+        if (currentGamemode === "normal"){
+            popupMessage(game.runGame("normal"), 7000);
+            showPlayersSelection()
+            updatePlayerSidebars()
+        }
+        else if (currentGamemode === "spicy"){
+            popupMessage(game.runGame("spicy"), 7000);
+            showPlayersSelection()
+            updatePlayerSidebars()
+        }
 
     }, 8000)
     setTimeout(function(){
         isGameRunning = false;
-        resetRPSSelection()
+        resetBoard(currentGamemode)
     }, 15000)
 
 }
@@ -147,25 +213,31 @@ function gamemodeSelection(event){
         console.log("errorMessage")
     }
     else if (gamemodeSelection==="normal"){
-        goToGamemode("normal")
+        setupGamemode("normal")
         setTimeout(function(){
             popupMessage(`Select your fighter on the left side to start the game!`, 3333, "blue")
         }, 500)
     }
-    else if (gamemodeSelection==="SPICYEDITTHISWHENSPICYISWORKING"){
-        goToGamemode("spicy")
+    else if (gamemodeSelection==="spicy"){
+        setupGamemode("spicy")
         setTimeout(function(){
             popupMessage(`Select your fighter on the left side to start the game!`, 3333, "blue")
         }, 500)
     }
 }
 
-function goToGamemode(gamemode){
+function setupGamemode(gamemode){
+    currentGamemode = gamemode;
     if (gamemode === "normal"){
         goToView(gameplayView)
         show (goToSetupBtn)
+        resetBoard(gamemode)
     }
     else if (gamemode == "spicy"){
+        goToView
+        goToView(gameplayView)
+        show (goToSetupBtn)
+        resetBoard(gamemode)
         return;
     }
 }
