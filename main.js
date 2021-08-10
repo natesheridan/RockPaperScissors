@@ -33,10 +33,10 @@ var player2Display = document.querySelector('.opponent-selection')
 
 var rpsP1NormalSelectionDefault = `
 <input name="rps" id="rock" type="radio" value="rock">
-<label for="rock">🪨
+<label for="rock">⛰️
 </label>
 <input name="rps" id="paper" type="radio" value="paper">
-<label for="paper">📄
+<label for="paper">📜
 </label>
 <input name="rps" id="scissors" type="radio" value="scissors">
 <label for="scissors">✂️
@@ -44,10 +44,10 @@ var rpsP1NormalSelectionDefault = `
 `
 var rpsP1SpicySelectionDefault = `
 <input name="rps" id="rock" type="radio" value="rock">
-<label for="rock">🪨
+<label for="rock">⛰️
 </label>
 <input name="rps" id="paper" type="radio" value="paper">
-<label for="paper">📄
+<label for="paper">📜
 </label>
 <input name="rps" id="scissors" type="radio" value="scissors">
 <label for="scissors">✂️
@@ -60,13 +60,13 @@ var rpsP1SpicySelectionDefault = `
 </label>
 `
 var rpsP2NormalSelectionDefault = `
-<p>🪨</p>
-<p>📄</p>
+<p>⛰️</p>
+<p>📜</p>
 <p>✂️</p>
 `
 var rpsP2SpicySelectionDefault= `
-<p>🪨</p>
-<p>📄</p>
+<p>⛰️</p>
+<p>📜</p>
 <p>✂️</p>
 <p>🦎</p>
 <p>👽</p>
@@ -101,14 +101,14 @@ function showPlayersSelection(){
     if (p1Selection === "rock"){
         player1Display.innerHTML = `
         <input name="rps" id="rock" type="radio" value="rock">
-        <label for="rock">🪨
+        <label for="rock">⛰️
         </label>
         `
     }
     else if (p1Selection === "paper"){
         player1Display.innerHTML = `
         <input name="rps" id="paper" type="radio" value="paper">
-        <label for="paper">📄
+        <label for="paper">📜
         </label>
         `
     }
@@ -134,11 +134,11 @@ function showPlayersSelection(){
         `
     }
     if (p2Selection === "rock"){
-        player2Display.innerHTML = `<p>🪨</p>
+        player2Display.innerHTML = `<p>⛰️</p>
         `
     }
     else if (p2Selection === "paper"){
-        player2Display.innerHTML = `<p>📄</p>
+        player2Display.innerHTML = `<p>📜</p>
         `
     }
     else if (p2Selection === "scissors"){
