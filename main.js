@@ -16,7 +16,7 @@ var loginBtn = document.querySelector('#loginWDiffName')
 var player1Display = document.querySelector('#RPSSelection')
 var player2Display = document.querySelector('.opponent-selection')
 var arrayParsed = [];
-var currentPlayerIndex = null;
+var currentPlayerIndex = "beans";
 var rpsP1NormalSelectionDefault = `
 <input name="rps" id="rock" type="radio" value="rock">
 <label for="rock">⛰️
@@ -88,14 +88,22 @@ function pullFromLocalStorage(){
     popupMessage(`No local save results found for ${searchQuery}!`, 1500, "red")
 }
 function pushToLocalStorage(){
+    debugger
     if (LS.length===0){
         arrayParsed = [currentP1];
         currentPlayerIndex = 0;
+        popupMessage(`A NEW local save with the name of: ${currentP1.name} has been made!`, 1500, "green")
     }
-    arrayParsed[currentPlayerIndex] = currentP1;
+    else if (LS.length===1 && currentPlayerIndex === "beans"){
+        arrayParsed.push(currentP1)
+        popupMessage(`A NEW local save with the name of: ${currentP1.name} has been made!`, 1500, "green")
+    }
+    else if (currentPlayerIndex>-1){
+        arrayParsed[currentPlayerIndex] = currentP1;
+        popupMessage(`A local save has been made to the name of: ${currentP1.name}`, 1500)
+    }
     var arrToSet = JSON.stringify(arrayParsed);
     LS.setItem('savedUsers', arrToSet)
-    popupMessage(`A local save with the name of: ${currentP1.name} has been made!`, 1500, "green")
 }
 
 function updateDataModelStorage(){
