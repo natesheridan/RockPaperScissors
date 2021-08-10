@@ -15,7 +15,7 @@ goToSetupBtn.addEventListener('click', function(){goToView(setupView)})
 
 
 document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
-document.querySelector('.game-selection-submit').addEventListener('click', gamemodeSelection)
+document.querySelector('#gamemodeSelection').addEventListener('input', gamemodeSelection)
 
 var isGameRunning = false;
 
@@ -232,6 +232,7 @@ function setupGamemode(gamemode){
         goToView(gameplayView)
         show (goToSetupBtn)
         resetBoard(gamemode)
+        return
     }
     else if (gamemode == "spicy"){
         goToView
