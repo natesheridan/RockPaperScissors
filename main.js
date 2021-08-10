@@ -1,36 +1,17 @@
+var currentView = '';
+var currentP1 = '';
+var currentP2 = '';
+var currentGamemode = '';
+var isGameRunning = false;
 var welcomeView = document.querySelector('.welcome-view')
 var setupView = document.querySelector('.setup-view')
 var gameplayView = document.querySelector('.gameplay-view')
 var sidebars = document.querySelector('.sidebars')
 var gameplayMainScreen = document.querySelector('.gameplay-main-screen')
-var currentView = '';
-var currentP1 = '';
-var currentP2 = '';
-var currentGamemode = '';
 var rpsRadios = document.querySelector('#RPSSelection')
 var goToSetupBtn = document.querySelector('#goToSetupBtn')
-
-rpsRadios.addEventListener('input', gameStart)
-goToSetupBtn.addEventListener('click', function(){goToView(setupView)})
-
-
-document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
-document.querySelector('#gamemodeSelection').addEventListener('input', gamemodeSelection)
-
-var isGameRunning = false;
-
-
-
-
-
-
-
-
-
 var player1Display = document.querySelector('#RPSSelection')
 var player2Display = document.querySelector('.opponent-selection')
-
-
 var rpsP1NormalSelectionDefault = `
 <input name="rps" id="rock" type="radio" value="rock">
 <label for="rock">⛰️
@@ -71,6 +52,18 @@ var rpsP2SpicySelectionDefault= `
 <p>🦎</p>
 <p>👽</p>
 `
+rpsRadios.addEventListener('input', gameStart)
+goToSetupBtn.addEventListener('click', function(){goToView(setupView)})
+
+document.querySelector('#welcomeForm button').addEventListener('click', welcomeScrnSubmit)
+document.querySelector('#gamemodeSelection').addEventListener('input', gamemodeSelection)
+
+
+
+
+
+
+
 
 
 
@@ -265,20 +258,36 @@ function welcomeScrnSubmit(event){
 function updatePlayerSidebars(){
     var userName = currentP1.name;
     var userToken = currentP1.token;
-    var userWins = currentP1.wins
+    var userTotalWins = currentP1.overallWins
+    var userNormalWins = currentP1.normalWins
+    var userSpicyWins = currentP1.spicyWins
+    var userLosses = currentP1.losses
 
     document.querySelector('.player1').innerHTML = `
     <h2>${userToken}</h2>
     <h3>${userName}</h3>
-    <p>WINS : ${userWins}</p>
+    <p>TOTAL WINS : ${userTotalWins}</p>
+    <br>
+    <p>😀 Ws : ${userNormalWins}</p>
+    <p>🌶 Ws : ${userSpicyWins}</p>
+    <br>
+    <p>L's Taken: ${userLosses}</p>
     `
     var userName = currentP2.name;
     var userToken = currentP2.token;
-    var userWins = currentP2.wins
+    var userTotalWins = currentP2.overallWins
+    var userNormalWins = currentP2.normalWins
+    var userSpicyWins = currentP2.spicyWins
+    var userLosses = currentP2.losses
     document.querySelector('.player2').innerHTML = `
     <h2>${userToken}</h2>
     <h3>${userName}</h3>
-    <p>WINS : ${userWins}</p>
+    <p>TOTAL WINS : ${userTotalWins}</p>
+    <br>
+    <p>😀 Ws : ${userNormalWins}</p>
+    <p>🌶 Ws : ${userSpicyWins}</p>
+    <br>
+    <p>L's Taken: ${userLosses}</p>
     `
 }
 

@@ -2,7 +2,10 @@ class Computer{
     constructor(name){
         this.type = "cpu"
         this.name = name;
-        this.wins = 0;
+        this.overallWins = 0;
+        this.normalWins = 0;
+        this.spicyWins = 0;
+        this.losses = 0;
         this.token = "💻";
         this.currentSelection;
     }
