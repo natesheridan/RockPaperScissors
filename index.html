@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600&family=Shadows+Into+Light&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>🪨📃✂️</title>
+    <title>⛰️📜✂️</title>
 </head>
 <body>
-    <div class=" welcome-view">
-        <h3>🪨📃✂️</h3>
+    <div class="welcome-view fade-long">
+        <h3>⛰️📜✂️</h3>
         <form id="welcomeForm">
             <h1>Welcome! What should I call you?</h1>
             <input autofocus="autofocus" name="user-name" type="text" maxlength="16" size="8">
@@ -33,8 +33,8 @@
                 <label for="token6"> 🧠 </label>
                 <input type="radio" id="token7" name="token" value="💪">
                 <label for="token7"> 💪 </label>
-                <input type="radio" id="token8" name="token" value="😶‍🌫️">
-                <label for="token8"> 😶‍🌫️ </label>
+                <input type="radio" id="token8" name="token" value="🛠">
+                <label for="token8"> 🛠 </label>
                 <input type="radio" id="token9" name="token" value="🙃">
                 <label for="token9"> 🙃 </label>
                 <input type="radio" id="token10" name="token" value="😂">
@@ -43,7 +43,7 @@
             <button>Let's Play!</button>
         </form>
     </div>
-    <div class= "setup-view hidden">
+    <div class= "setup-view fade-long hidden">
         <section class="game-setup">
             <form id="gamemodeSelection">
                 <input name="gameSelection" id="normal" type="radio" value="normal">
@@ -51,29 +51,27 @@
                     😀
                     <h2>Normal</h2>
                     <p>ROCK > SCISSORS</p>
-                    <p>ROCK > SCISSORS</p>
-                    <p>ROCK > SCISSORS</p>
+                    <p>PAPER > ROCK</p>
+                    <p>SCISSORS > PAPER</p>
                 </label>
                 <input name="gameSelection" id="spicy" type="radio" value="spicy">
                 <label class="game-selection" for="spicy">
                     🌶
                     <h2>Spicy</h2>
-                    <p>ROCK > SCISSORS</p>
-                    <p>ROCK > SCISSORS</p>
-                    <p>ROCK > SCISSORS</p>
-                    <p>ROCK > SCISSORS</p>
-                    <p>ROCK > SCISSORS</p>
+                    <p>ROCK > SCISSORS & LIZARD</p>
+                    <p>SCISSORS > ROCK & ALIEN</p>
+                    <p>PAPER > PAPER & LIZARD</p>
+                    <p>LIZARD > PAPER & ALIEN</p>
+                    <p>ALIEN > SCISSORS & ROCK</p>
                 </label>
-                <button class="game-selection-submit">Start Playing!</button>
             </form>
         </section>
-        <h3>🪨📃✂️</h3>
     </div>
-    <div class="gameplay-view hidden">
+    <div class="gameplay-view fade-long hidden">
         <section class="gameplay-main-screen">
             <form id="RPSSelection">
                 <input name="rps" id="rock" type="radio" value="rock">
-                <label for="rock">🪨
+                <label for="rock">⛰️
                 </label>
                 <input name="rps" id="paper" type="radio" value="paper">
                 <label for="paper">📄
@@ -84,21 +82,28 @@
             </form>
             <h2>VS</h2>
             <span class="opponent-selection">
-                <p class="">🪨</p>
+                <p>⛰️</p>
                 <p>📄</p>
                 <p>✂️</p>
             </span>
         </section>
     </div>
-    <div class="sidebars hidden">
+    <div class="sidebars hidden fade-short">
         <section class="player1 sidebar">
         </section>
         <section class="player2 sidebar">
         </section>
     </div>
-    <span class="hidden" id="popup">
+    <span class="hidden fade-short" id="popup">
         <p>Popup Test Text</p>
     </span>
+    <span class="hidden fade-short" id="goToSetupBtn">
+        <p><= Gamemodes</p>
+    </span>
+    <span class="hidden fade-short" id="saveToStorage">
+        <p>Save your progress</p>
+    </span>
+    
 </body>
 <script type="text/javascript" src="./player.js"></script>
 <script type="text/javascript" src="./computer.js"></script>
